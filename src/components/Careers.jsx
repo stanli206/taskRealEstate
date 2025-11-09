@@ -220,7 +220,7 @@ function Careers() {
               </span>
             </div>
             <button 
-              onClick={() => navigate('/home')}
+              onClick={() => navigate('residential/ongoing-projects')}
               className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300"
             >
               Back to Home

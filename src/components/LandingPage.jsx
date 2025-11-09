@@ -152,11 +152,11 @@ function LandingPage() {
   }, [slides.length]);
 
   const handleGetStarted = () => {
-    navigate("/home");
+    navigate("residential/ongoing-projects");
   };
 
   const handleViewDetails = () => {
-    navigate("/home");
+    navigate("residential/ongoing-projects");
   };
 
   return (
@@ -314,7 +314,7 @@ function LandingPage() {
                 </p>
                 <button
                   onClick={handleGetStarted}
-                  className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400 shadow-2xl"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400 shadow-2xl"
                 >
                   {slide.cta}
                 </button>

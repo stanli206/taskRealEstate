@@ -28,7 +28,6 @@ const quickBudgets = [
 const bhkOptions = ["1", "2", "2.5", "3", "3.5", "4+"];
 
 const mockProperties = [
-  
   {
     id: "p1",
     title: "3 BHK Luxury Apartment in Sholinganallur",
@@ -316,7 +315,6 @@ const heroSlides = [
   },
 ];
 
-
 const Section = ({
   title,
   actionText,
@@ -461,12 +459,10 @@ const PropertyCard = ({ p, onViewDetails }) => (
   </div>
 );
 
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
 
-  
   const navItems = [
     { name: "Properties", to: "/feauturedprojects" },
     { name: "About Us", to: "/about" },
@@ -475,7 +471,6 @@ const Navbar = () => {
     { name: "Blog", to: "/blog" },
   ];
 
- 
   const moreItems = [
     { name: "Customer Login", to: "/customer-login" },
     // { name: "Agent Signup", to: "/agent-signup" },
@@ -488,7 +483,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo -> link to home */}
-          <Link to="/home" className="flex items-center">
+          <Link to="residential/ongoing-projects" className="flex items-center">
             <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">E</span>
             </div>
@@ -497,7 +492,6 @@ const Navbar = () => {
             </span>
           </Link>
 
-          
           <div className="hidden md:flex items-center space-x-6">
             {navItems.slice(0, 4).map((item) => (
               <Link
@@ -509,7 +503,6 @@ const Navbar = () => {
               </Link>
             ))}
 
-           
             <div className="relative flex items-center">
               <Link
                 to="/blog"
@@ -517,13 +510,12 @@ const Navbar = () => {
               >
                 Blog
               </Link>
-              
+
               <button
                 aria-label="More"
                 onClick={() => setMoreOpen((v) => !v)}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-lg hover:bg-gray-100 border border-gray-200"
               >
-               
                 <div className="w-4 space-y-1">
                   <span className="block h-0.5 bg-white" />
                   <span className="block h-0.5 bg-white" />
@@ -531,7 +523,6 @@ const Navbar = () => {
                 </div>
               </button>
 
-             
               {moreOpen && (
                 <div className="absolute right-0 top-10 w-56 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden">
                   {moreItems.map((mi) => (
@@ -549,7 +540,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          
           {/* <button
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -574,7 +564,6 @@ const Navbar = () => {
           </button> */}
         </div>
 
-      
         {/* {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <div className="flex flex-col space-y-2">
@@ -612,7 +601,6 @@ const Navbar = () => {
   );
 };
 
-
 function Home() {
   const navigate = useNavigate();
   const [tab, setTab] = useState("Buy");
@@ -626,7 +614,6 @@ function Home() {
   const [showAllUnderConstruction, setShowAllUnderConstruction] =
     useState(false);
 
-  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -697,10 +684,7 @@ function Home() {
                 <p className="text-xl md:text-2xl mb-8 animate-fade-in-up animation-delay-200">
                   {slide.subtitle}
                 </p>
-                <Link
-                  to="/fp"
-                  className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400"
-                >
+                <Link className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400">
                   {slide.cta}
                 </Link>
               </div>
@@ -727,9 +711,7 @@ function Home() {
         </div>
       </section>
 
-      
       <div className="max-w-6xl mx-auto px-4 pb-20">
-        
         <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 -mt-20 relative z-10 mb-16">
           <div className="inline-flex rounded-2xl overflow-hidden bg-gray-100 p-1 mb-8">
             {["Buy", "Rent", "Plot", "Commercial"].map((t) => (
@@ -747,7 +729,6 @@ function Home() {
             ))}
           </div>
 
-          
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
             <div className="md:col-span-3">
               <label className="text-sm font-semibold text-gray-700 mb-3 block">
@@ -843,7 +824,6 @@ function Home() {
           </div>
         </div>
 
-      
         <Section title="🚀 Ready to Move Properties" background="gradient">
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -869,7 +849,6 @@ function Home() {
           </div>
         </Section>
 
-        
         <Section title="🏗️ Under Construction (Great Investment)">
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -896,7 +875,6 @@ function Home() {
           </div>
         </Section>
 
-        
         <Section title="🏆 Trusted Builders" background="gradient">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {trendingBuilders.map((b) => (
@@ -929,7 +907,6 @@ function Home() {
           </div>
         </Section>
 
-        
         <Section title="💫 Why Choose Us?">
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -963,7 +940,6 @@ function Home() {
           </div>
         </Section>
 
-        
         <Section title="📞 Get Free Consultation" background="gradient">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -1052,7 +1028,7 @@ function Home() {
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1">
-              <Link to="/home" className="flex items-center mb-4">
+              <Link to="residential/ongoing-projects" className="flex items-center mb-4">
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-lg">E</span>
                 </div>
@@ -1150,7 +1126,6 @@ function Home() {
         </div>
       </footer>
 
-      
       <style jsx>{`
         @keyframes fade-in-up {
           from {
