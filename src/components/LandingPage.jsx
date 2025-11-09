@@ -114,7 +114,7 @@ function LandingPage() {
   const teamMembers = [
     {
       name: "Aarav Sharma",
-      role: "Founder & CEO",
+      role: "Founder",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
       description: "20+ years in real estate development",
@@ -161,11 +161,11 @@ function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation - Transparent Background */}
+      
       <nav className="fixed w-full z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            {/* Logo */}
+            
             <div className="flex items-center">
               <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">E</span>
@@ -175,9 +175,9 @@ function LandingPage() {
               </span>
             </div>
 
-            {/* Desktop Menu */}
+          
             <div className="hidden md:flex items-center space-x-4">
-              {/* Contact Us Dropdown */}
+              
               <div className="relative">
                 <button
                   onClick={() => setIsContactOpen(!isContactOpen)}
@@ -193,7 +193,7 @@ function LandingPage() {
                   </span>
                 </button>
 
-                {/* Contact Dropdown bg-gradient-to-r from-purple-600 to-pink-600 text-white*/}
+                
                 {isContactOpen && (
                   <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50">
                     <div className="p-6">
@@ -230,7 +230,7 @@ function LandingPage() {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            
             <button
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -255,11 +255,11 @@ function LandingPage() {
             </button>
           </div>
 
-          {/* Mobile Menu */}
+          
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-white/20">
               <div className="flex flex-col space-y-4">
-                {/* Mobile Contact Numbers */}
+                
                 <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
                   <h3 className="font-semibold text-white mb-3 text-center">
                     CALL US
@@ -288,7 +288,7 @@ function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero Section with Image Overlay */}
+      
       <section className="relative h-screen overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -323,7 +323,7 @@ function LandingPage() {
           </div>
         ))}
 
-        {/* Slide Indicators */}
+        
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
           {slides.map((_, index) => (
             <button
@@ -336,7 +336,7 @@ function LandingPage() {
           ))}
         </div>
 
-        {/* Scroll Indicator */}
+        
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
@@ -344,8 +344,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Rest of the sections remain exactly the same */}
-      {/* Features Section */}
+      
       <section
         id="features"
         className="py-20 bg-gradient-to-br from-purple-50 to-pink-50"
@@ -382,7 +381,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Completed Projects Section */}
+      
       <section
         id="projects"
         className="py-20 bg-gradient-to-br from-blue-50 to-pink-50"
@@ -404,7 +403,7 @@ function LandingPage() {
                 key={index}
                 className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
               >
-                {/* Project Background */}
+               
                 <div
                   className="h-48 bg-cover bg-center relative"
                   style={{ backgroundImage: `url(${project.background})` }}
@@ -446,7 +445,7 @@ function LandingPage() {
                     </p>
                   )}
 
-                  {/* Features */}
+                  
                   <div className="mb-4">
                     <h4 className="text-sm font-semibold text-gray-900 mb-2">
                       Key Features:
@@ -468,7 +467,7 @@ function LandingPage() {
                     </div>
                   </div>
 
-                  {/* Price/Specifications */}
+                  
                   <div className="border-t pt-3">
                     {project.price ? (
                       <div className="text-purple-600 font-bold text-lg">
@@ -507,7 +506,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      
       <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -527,7 +526,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* About Us Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -580,7 +578,6 @@ function LandingPage() {
             </div>
           </div>
 
-          {/* Team Section */}
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
               Meet Our Leadership
@@ -615,7 +612,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-purple-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -697,7 +693,7 @@ function LandingPage() {
             <div>
               <h3 className="font-semibold mb-4">Contact Info</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>📞 +1 (555) 123-4567</li>
+                <li>📞 +1 (555) 123-0007</li>
                 <li>✉️ hello@elitehomes.com</li>
                 <li>📍 Premium Locations Worldwide</li>
               </ul>
@@ -724,7 +720,7 @@ function LandingPage() {
         </div>
       </footer>
 
-      {/* Custom CSS for animations */}
+    
       <style jsx>{`
         @keyframes fade-in-up {
           from {

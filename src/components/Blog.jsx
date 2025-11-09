@@ -120,14 +120,14 @@ function Blog() {
     : blogPosts.filter(post => post.category === activeCategory);
 
   const handleReadMore = (postId) => {
-    // Navigate to individual blog post page
+    
     console.log('Reading post:', postId);
-    // navigate(`/blog/${postId}`);
+    
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
-      {/* Navigation */}
+  
       <nav className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
@@ -149,7 +149,7 @@ function Blog() {
         </div>
       </nav>
 
-      {/* Blog Header */}
+      
       <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-20">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">EliteHomes Blog</h1>
@@ -159,7 +159,7 @@ function Blog() {
         </div>
       </section>
 
-      {/* Featured Posts */}
+      
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
@@ -211,13 +211,13 @@ function Blog() {
         </div>
       </section>
 
-      {/* Blog Content */}
+      
       <section className="py-8">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid lg:grid-cols-4 gap-8">
-            {/* Main Content */}
+            
             <div className="lg:col-span-3">
-              {/* Category Filters */}
+              
               <div className="flex flex-wrap gap-3 mb-8">
                 {blogCategories.map((category) => (
                   <button
@@ -234,7 +234,7 @@ function Blog() {
                 ))}
               </div>
 
-              {/* Blog Posts Grid */}
+              
               <div className="grid md:grid-cols-2 gap-8">
                 {filteredPosts.map((post) => (
                   <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2">
@@ -273,7 +273,7 @@ function Blog() {
                 ))}
               </div>
 
-              {/* Load More Button */}
+              
               <div className="text-center mt-12">
                 <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                   Load More Articles
@@ -281,9 +281,9 @@ function Blog() {
               </div>
             </div>
 
-            {/* Sidebar */}
+          
             <div className="lg:col-span-1 space-y-8">
-              {/* Popular Posts */}
+              
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Popular Posts</h3>
                 <div className="space-y-4">
@@ -311,7 +311,7 @@ function Blog() {
                 </div>
               </div>
 
-              {/* Categories */}
+              
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Categories</h3>
                 <div className="space-y-2">
@@ -331,7 +331,7 @@ function Blog() {
                 </div>
               </div>
 
-              {/* Newsletter */}
+              
               <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-6 text-white">
                 <h3 className="text-xl font-bold mb-3">Stay Updated</h3>
                 <p className="text-purple-100 text-sm mb-4">
@@ -353,7 +353,7 @@ function Blog() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      
       <section className="py-16 bg-gradient-to-r from-gray-900 to-purple-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -373,7 +373,7 @@ function Blog() {
         </div>
       </section>
 
-      {/* Footer */}
+     
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

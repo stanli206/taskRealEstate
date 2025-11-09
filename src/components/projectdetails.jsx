@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast';
 
-// Amenities data with icons and categories
 const amenitiesData = {
   "Swimming Pool": { icon: "🏊", category: "Recreation" },
   "Gym": { icon: "💪", category: "Fitness" },
@@ -64,7 +63,6 @@ function ProjectDetails() {
     message: ''
   });
 
-  // If no property data is passed, redirect to home
   if (!property) {
     React.useEffect(() => {
       navigate('/');
@@ -72,7 +70,6 @@ function ProjectDetails() {
     return null;
   }
 
-  // Group amenities by category
   const groupedAmenities = property.amenities?.reduce((acc, amenity) => {
     const amenityInfo = amenitiesData[amenity] || { icon: "⭐", category: "General" };
     if (!acc[amenityInfo.category]) {
@@ -82,11 +79,9 @@ function ProjectDetails() {
     return acc;
   }, {});
 
-  // Get all amenity categories
   const amenityCategories = groupedAmenities ? Object.keys(groupedAmenities) : [];
   const amenitiesPerSlide = 6;
 
-  // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -95,17 +90,14 @@ function ProjectDetails() {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Simulate form submission
     toast.success('Thank you! Our agent will contact you shortly.', {
       duration: 4000,
       position: 'top-center',
     });
     
-    // Reset form and close modal
     setFormData({
       name: '',
       email: '',
@@ -115,7 +107,6 @@ function ProjectDetails() {
     setShowContactForm(false);
   };
 
-  // Format price function
   const formatPrice = (n) =>
     "₹ " +
     (n || 0)
@@ -127,7 +118,6 @@ function ProjectDetails() {
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
       <Toaster />
       
-      {/* Navigation */}
       <nav className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
@@ -149,9 +139,7 @@ function ProjectDetails() {
         </div>
       </nav>
 
-      {/* Property Details */}
       <div className="max-w-6xl mx-auto px-4 py-8">
-        {/* Property Header */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
           <div className="relative h-96">
             <img 
@@ -182,11 +170,8 @@ function ProjectDetails() {
               {property.locality}, {property.city}
             </div>
 
-            {/* Main Content Grid - Property Details + CTA Side by Side */}
             <div className="grid lg:grid-cols-3 gap-8 mb-8">
-              {/* Property Details - Takes 2/3 space */}
               <div className="lg:col-span-2 space-y-8">
-                {/* Price and Configuration */}
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl">
                     <div className="text-3xl font-bold text-gray-900">{formatPrice(property.price)}</div>
@@ -202,7 +187,6 @@ function ProjectDetails() {
                   </div>
                 </div>
 
-                {/* Property Details Grid */}
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Property Details</h3>
@@ -250,7 +234,6 @@ function ProjectDetails() {
                 </div>
               </div>
 
-              {/* CTA Section - Takes 1/3 space */}
               <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-6 text-white h-fit sticky top-8">
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -286,7 +269,6 @@ function ProjectDetails() {
           </div>
         </div>
 
-        {/* Description & Amenities */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Description</h3>
@@ -301,7 +283,6 @@ function ProjectDetails() {
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Premium Amenities</h3>
             
-            {/* Amenities Slides */}
             <div className="relative">
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                 {property.amenities?.slice(
@@ -322,7 +303,6 @@ function ProjectDetails() {
                 })}
               </div>
 
-              {/* Slide Indicators */}
               {property.amenities && property.amenities.length > amenitiesPerSlide && (
                 <div className="flex justify-center space-x-2 mb-6">
                   {Array.from({ 
@@ -341,7 +321,6 @@ function ProjectDetails() {
                 </div>
               )}
 
-              {/* Amenities by Category */}
               <div className="space-y-4">
                 <h4 className="font-semibold text-gray-900 mb-3">Amenities by Category</h4>
                 {groupedAmenities && Object.entries(groupedAmenities).map(([category, amenities]) => (
@@ -366,7 +345,6 @@ function ProjectDetails() {
         </div>
       </div>
 
-      {/* Contact Agent Modal */}
       {showContactForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">

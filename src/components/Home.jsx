@@ -1,10 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-/** ---------------------------
- *  Utilities & Mock Data
- *  ---------------------------
- */
 const formatPrice = (n) =>
   "₹ " +
   (n || 0)
@@ -20,7 +16,6 @@ const cities = [
   "Mumbai",
   "Delhi-NCR",
 ];
-
 const propertyTypes = ["Apartment", "Villa", "Plot", "Penthouse", "Studio"];
 
 const quickBudgets = [
@@ -33,6 +28,7 @@ const quickBudgets = [
 const bhkOptions = ["1", "2", "2.5", "3", "3.5", "4+"];
 
 const mockProperties = [
+  
   {
     id: "p1",
     title: "3 BHK Luxury Apartment in Sholinganallur",
@@ -320,10 +316,7 @@ const heroSlides = [
   },
 ];
 
-/** ---------------------------
- *  Small Reusable UI
- *  ---------------------------
- */
+
 const Section = ({
   title,
   actionText,
@@ -468,54 +461,96 @@ const PropertyCard = ({ p, onViewDetails }) => (
   </div>
 );
 
-/** ---------------------------
- *  Navigation Component
- *  ---------------------------
- */
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
+  
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Properties", href: "#properties" },
-    { name: "About Us", href: "#about" },
-    { name: "Amenities", href: "#amenities" },
-    { name: "Contact", href: "#contact" },
-    { name: "Blog", href: "#blog" },
+    { name: "Properties", to: "/feauturedprojects" },
+    { name: "About Us", to: "/about" },
+    { name: "commercial", to: "/commercial-projects" },
+    { name: "Contact", to: "" },
+    { name: "Blog", to: "/blog" },
+  ];
+
+ 
+  const moreItems = [
+    { name: "Customer Login", to: "/customer-login" },
+    // { name: "Agent Signup", to: "/agent-signup" },
+    { name: "FAQs", to: "" },
+    { name: "Careers", to: "/careers" },
   ];
 
   return (
     <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Logo -> link to home */}
+          <Link to="/home" className="flex items-center">
             <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">E</span>
             </div>
             <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               EliteHomes
             </span>
-          </div>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
+          
+          <div className="hidden md:flex items-center space-x-6">
+            {navItems.slice(0, 4).map((item) => (
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.to}
                 className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              Get Started
-            </button>
+
+           
+            <div className="relative flex items-center">
+              <Link
+                to="/blog"
+                className="text-gray-700 hover:text-purple-600 transition-colors font-medium mr-1"
+              >
+                Blog
+              </Link>
+              
+              <button
+                aria-label="More"
+                onClick={() => setMoreOpen((v) => !v)}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-lg hover:bg-gray-100 border border-gray-200"
+              >
+               
+                <div className="w-4 space-y-1">
+                  <span className="block h-0.5 bg-white" />
+                  <span className="block h-0.5 bg-white" />
+                  <span className="block h-0.5 bg-white" />
+                </div>
+              </button>
+
+             
+              {moreOpen && (
+                <div className="absolute right-0 top-10 w-56 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden">
+                  {moreItems.map((mi) => (
+                    <Link
+                      key={mi.name}
+                      to={mi.to}
+                      onClick={() => setMoreOpen(false)}
+                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50"
+                    >
+                      {mi.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
+          
+          {/* <button
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -524,50 +559,60 @@ const Navbar = () => {
                 className={`w-full h-0.5 bg-gray-700 transition-all ${
                   isMenuOpen ? "rotate-45 translate-y-2.5" : ""
                 }`}
-              ></span>
+              />
               <span
                 className={`w-full h-0.5 bg-gray-700 transition-all ${
                   isMenuOpen ? "opacity-0" : ""
                 }`}
-              ></span>
+              />
               <span
                 className={`w-full h-0.5 bg-gray-700 transition-all ${
                   isMenuOpen ? "-rotate-45 -translate-y-2.5" : ""
                 }`}
-              ></span>
+              />
             </div>
-          </button>
+          </button> */}
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
+      
+        {/* {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.to}
                   className="text-gray-700 hover:text-purple-600 transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full w-full mt-2">
-                Get Started
-              </button>
+            
+              <div className="pt-2">
+                <div className="text-xs uppercase text-gray-500 px-1 mb-1">
+                  More
+                </div>
+                {moreItems.map((mi) => (
+                  <Link
+                    key={mi.name}
+                    to={mi.to}
+                    className="block text-gray-700 hover:text-purple-600 transition-colors font-medium py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {mi.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </nav>
   );
 };
 
-/** ---------------------------
- *  Main Home Component
- *  ---------------------------
- */
+
 function Home() {
   const navigate = useNavigate();
   const [tab, setTab] = useState("Buy");
@@ -577,12 +622,11 @@ function Home() {
   const [budget, setBudget] = useState(quickBudgets[1]);
   const [reraOnly, setReraOnly] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showAllFeatured, setShowAllFeatured] = useState(false);
   const [showAllReady, setShowAllReady] = useState(false);
   const [showAllUnderConstruction, setShowAllUnderConstruction] =
     useState(false);
 
-  // Auto slide functionality
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -602,20 +646,19 @@ function Home() {
     );
   }, [bhk, budget, city, reraOnly, propertyType]);
 
-  const readyProperties = useMemo(() => {
-    return mockProperties.filter((p) => p.status === "Ready-to-Move");
-  }, []);
+  const readyProperties = useMemo(
+    () => mockProperties.filter((p) => p.status === "Ready-to-Move"),
+    []
+  );
 
-  const underConstructionProperties = useMemo(() => {
-    return mockProperties.filter(
-      (p) => p.status === "Under-Construction" || p.status === "New Launch"
-    );
-  }, []);
+  const underConstructionProperties = useMemo(
+    () =>
+      mockProperties.filter(
+        (p) => p.status === "Under-Construction" || p.status === "New Launch"
+      ),
+    []
+  );
 
-  // Properties to show in each section
-  const featuredPropertiesToShow = showAllFeatured
-    ? featured
-    : featured.slice(0, 4);
   const readyPropertiesToShow = showAllReady
     ? readyProperties
     : readyProperties.slice(0, 4);
@@ -629,10 +672,9 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
-      {/* Navigation */}
       <Navbar />
 
-      {/* Hero Section with Slides */}
+      {/* Hero */}
       <section id="home" className="relative h-screen overflow-hidden pt-16">
         {heroSlides.map((slide, index) => (
           <div
@@ -641,15 +683,12 @@ function Home() {
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
-            {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: `url(${slide.background})` }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
             </div>
-
-            {/* Slide Content */}
             <div className="relative h-full flex items-center justify-center text-center text-white">
               <div className="max-w-4xl mx-auto px-4 transform transition-all duration-1000 ease-out">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
@@ -658,15 +697,17 @@ function Home() {
                 <p className="text-xl md:text-2xl mb-8 animate-fade-in-up animation-delay-200">
                   {slide.subtitle}
                 </p>
-                <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400">
+                <Link
+                  to="/fp"
+                  className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400"
+                >
                   {slide.cta}
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         ))}
 
-        {/* Slide Indicators */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
           {heroSlides.map((_, index) => (
             <button
@@ -679,7 +720,6 @@ function Home() {
           ))}
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
@@ -687,11 +727,10 @@ function Home() {
         </div>
       </section>
 
-      {/* Main Content */}
+      
       <div className="max-w-6xl mx-auto px-4 pb-20">
-        {/* Search Panel */}
+        
         <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 -mt-20 relative z-10 mb-16">
-          {/* Tabs */}
           <div className="inline-flex rounded-2xl overflow-hidden bg-gray-100 p-1 mb-8">
             {["Buy", "Rent", "Plot", "Commercial"].map((t) => (
               <button
@@ -708,7 +747,7 @@ function Home() {
             ))}
           </div>
 
-          {/* Search Filters */}
+          
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
             <div className="md:col-span-3">
               <label className="text-sm font-semibold text-gray-700 mb-3 block">
@@ -770,7 +809,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="md:col-span-12 flex items-center justify-between gap-4 pt-4 border-t border-gray-200">
+            <div className="md:col-span-12 flex items-center justify-between gap-4 pt-4 border-top border-gray-200">
               <div className="flex items-center gap-3">
                 <input
                   id="rera"
@@ -787,62 +826,24 @@ function Home() {
                 </label>
               </div>
               <div className="flex gap-3">
-                <button className="px-6 py-3 rounded-xl border-2 border-purple-600 text-purple-600 font-semibold hover:bg-pink-50 transition-colors">
+                <Link
+                  to="/properties"
+                  className="px-6 py-3 rounded-xl border-2 border-purple-600 text-purple-600 font-semibold hover:bg-pink-50 transition-colors"
+                >
                   🔍 Advanced Search
-                </button>
-                <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                </Link>
+                <Link
+                  to="/fp"
+                  className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
                   View {tab} Properties
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Popular Cities */}
-        {/* <Section title="🌆 Explore Popular Cities" background="gradient">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {cities.map((c) => (
-              <button
-                key={c}
-                onClick={() => setCity(c)}
-                className={`p-6 rounded-2xl text-left transition-all duration-300 transform hover:-translate-y-2 ${
-                  city === c 
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl" 
-                    : "bg-white hover:shadow-xl border border-gray-200"
-                }`}
-              >
-                <div className="text-lg font-bold mb-2">{c}</div>
-                <div className={`${city === c ? 'text-pink-100' : 'text-gray-600'} text-sm`}>
-                  Premium Properties
-                </div>
-              </button>
-            ))}
-          </div>
-        </Section> */}
-
-        {/* Featured Properties */}
-        {/* <Section title="⭐ Featured Properties For You">
-          <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredPropertiesToShow.map((p) => (
-                <PropertyCard key={p.id} p={p} onViewDetails={handleViewDetails} />
-              ))}
-            </div>
-            
-            {!showAllFeatured && featured.length > 4 && (
-              <div className="text-center">
-                <button 
-                  onClick={() => setShowAllFeatured(true)}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  View More Properties
-                </button>
-              </div>
-            )}
-          </div>
-        </Section> */}
-
-        {/* Ready to Move */}
+      
         <Section title="🚀 Ready to Move Properties" background="gradient">
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -868,7 +869,7 @@ function Home() {
           </div>
         </Section>
 
-        {/* Under Construction */}
+        
         <Section title="🏗️ Under Construction (Great Investment)">
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -895,7 +896,7 @@ function Home() {
           </div>
         </Section>
 
-        {/* Trending Builders */}
+        
         <Section title="🏆 Trusted Builders" background="gradient">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {trendingBuilders.map((b) => (
@@ -916,16 +917,19 @@ function Home() {
                     {b.name}
                   </div>
                   <div className="text-sm text-gray-600 mb-3">{b.projects}</div>
-                  <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                  <Link
+                    to="/properties"
+                    className="w-full block text-center bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  >
                     View Projects
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </Section>
 
-        {/* Why Choose Us */}
+        
         <Section title="💫 Why Choose Us?">
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -959,7 +963,7 @@ function Home() {
           </div>
         </Section>
 
-        {/* Enquiry Section */}
+        
         <Section title="📞 Get Free Consultation" background="gradient">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -1028,7 +1032,7 @@ function Home() {
                       rows="3"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                       placeholder="Tell us about your property requirements..."
-                    ></textarea>
+                    />
                   </div>
                   <button
                     type="submit"
@@ -1043,18 +1047,17 @@ function Home() {
         </Section>
       </div>
 
-      {/* Enhanced Footer */}
+      {/* Footer */}
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Company Info */}
             <div className="md:col-span-1">
-              <div className="flex items-center mb-4">
+              <Link to="/home" className="flex items-center mb-4">
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-lg">E</span>
                 </div>
                 <span className="ml-3 text-2xl font-bold">EliteHomes</span>
-              </div>
+              </Link>
               <p className="text-gray-400 mb-4 leading-relaxed">
                 India's most trusted real estate platform helping you find your
                 dream home with confidence and transparency.
@@ -1071,27 +1074,28 @@ function Home() {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div>
               <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
               <ul className="space-y-2 text-gray-400">
                 {[
-                  "Buy Property",
-                  "Rent Property",
-                  "Sell Property",
-                  "Commercial",
-                  "Plot/Land",
-                ].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="hover:text-white transition-colors">
-                      {link}
-                    </a>
+                  { label: "Buy Property", to: "/properties" },
+                  { label: "Rent Property", to: "/properties" },
+                  { label: "Sell Property", to: "/contact" },
+                  { label: "Commercial", to: "/properties" },
+                  { label: "Plot/Land", to: "/properties" },
+                ].map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      to={l.to}
+                      className="hover:text-white transition-colors"
+                    >
+                      {l.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Services */}
             <div>
               <h3 className="font-semibold text-lg mb-4">Our Services</h3>
               <ul className="space-y-2 text-gray-400">
@@ -1102,30 +1106,22 @@ function Home() {
                   "Site Visits",
                   "Property Management",
                 ].map((service) => (
-                  <li key={service}>
-                    <a href="#" className="hover:text-white transition-colors">
-                      {service}
-                    </a>
-                  </li>
+                  <li key={service}>{service}</li>
                 ))}
               </ul>
             </div>
 
-            {/* Contact & Newsletter */}
             <div>
               <h3 className="font-semibold text-lg mb-4">Contact Info</h3>
               <div className="space-y-2 text-gray-400 mb-4">
                 <div className="flex items-center">
-                  <span className="mr-2">📞</span>
-                  +91 98765 43210
+                  <span className="mr-2">📞</span>+91 91234 12340
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">✉️</span>
-                  info@EliteHomes.com
+                  <span className="mr-2">✉️</span>info@EliteHomes.com
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">📍</span>
-                  Across India
+                  <span className="mr-2">📍</span>Across India
                 </div>
               </div>
 
@@ -1147,14 +1143,14 @@ function Home() {
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
             <p>
-              &copy; 2024 EliteHomes. All rights reserved. | Made with ❤️ for
-              India
+              &copy; {new Date().getFullYear()} EliteHomes. All rights reserved.
+              | Made with ❤️ for India
             </p>
           </div>
         </div>
       </footer>
 
-      {/* Custom CSS for animations */}
+      
       <style jsx>{`
         @keyframes fade-in-up {
           from {
@@ -1166,15 +1162,12 @@ function Home() {
             transform: translateY(0);
           }
         }
-
         .animate-fade-in-up {
           animation: fade-in-up 1s ease-out;
         }
-
         .animation-delay-200 {
           animation-delay: 200ms;
         }
-
         .animation-delay-400 {
           animation-delay: 400ms;
         }

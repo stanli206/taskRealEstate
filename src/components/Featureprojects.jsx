@@ -171,7 +171,7 @@ function Featureprojects() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Category Tabs */}
+      
         <div className="flex flex-wrap gap-4 mb-8">
           {projectCategories.map(category => (
             <button
@@ -188,7 +188,7 @@ function Featureprojects() {
           ))}
         </div>
 
-        {/* Sort Options */}
+    
         <div className="flex flex-wrap justify-between items-center mb-8">
           <div className="flex items-center space-x-4 mb-4 sm:mb-0">
             <span className="text-gray-700 font-medium">Sort by:</span>
@@ -214,11 +214,11 @@ function Featureprojects() {
           </div>
         </div>
 
-        {/* Projects Grid */}
+      
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {filteredProjects.map(project => (
             <div key={project.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-              {/* Project Image */}
+              
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={project.image} 
@@ -237,7 +237,7 @@ function Featureprojects() {
                 </div>
               </div>
 
-              {/* Project Details */}
+              
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{project.name}</h3>
                 <p className="text-gray-600 text-sm mb-3 flex items-center">
@@ -256,7 +256,7 @@ function Featureprojects() {
                   </div>
                 </div>
 
-                {/* Specifications */}
+              
                 <div className="mb-4">
                   <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
                   <div className="flex flex-wrap gap-1">
@@ -277,7 +277,7 @@ function Featureprojects() {
                   {project.description}
                 </p>
 
-                {/* Action Buttons */}
+              
                 <div className="flex gap-2">
                   <button 
                     onClick={() => handleEnquiry(project)}
@@ -297,7 +297,7 @@ function Featureprojects() {
           ))}
         </div>
 
-        {/* Market Price Section */}
+        
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Current Market Prices</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -315,7 +315,7 @@ function Featureprojects() {
           </div>
         </div>
 
-        {/* Specification Guide */}
+        
         <div className="bg-white rounded-2xl shadow-lg p-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Property Specifications Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -357,7 +357,7 @@ function Featureprojects() {
         </div>
       </div>
 
-      {/* Enquiry Form Modal */}
+      
       {showEnquiryForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl p-8 max-w-md w-full">
@@ -423,7 +423,6 @@ function Featureprojects() {
         </div>
       )}
 
-      {/* Site Visit Form Modal */}
       {showSiteVisitForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl p-8 max-w-md w-full">
@@ -491,7 +490,7 @@ function Featureprojects() {
         </div>
       )}
 
-      {/* Success Toast */}
+    
       {showToast && (
         <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-bounce">
           <div className="flex items-center">
@@ -530,7 +529,7 @@ function Featureprojects() {
             <div>
               <h3 className="font-semibold mb-4">Contact Info</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>📞 +1 (555) 123-4567</li>
+                <li>📞 +1 (555) 123-0007</li>
                 <li>✉️ info@EliteHomes.com</li>
                 <li>📍 Premium Locations Worldwide</li>
               </ul>

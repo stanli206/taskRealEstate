@@ -4,6 +4,10 @@ import LandingPage from "./components/LandingPage";
 import Featureprojects from "./components/Featureprojects";
 import ProjectDetails from "./components/projectdetails";
 import Blog from "./components/Blog";
+import Login from "./components/Login";
+import About from "./components/AboutUs";
+import CommercialProjects from "./components/CommercialProjects";
+import Careers from "./components/Careers";
 
 export default function App() {
   return (
@@ -11,9 +15,13 @@ export default function App() {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/fp" element={<Featureprojects />} />
+        <Route path="/feauturedprojects" element={<Featureprojects />} />
         <Route path="/projectdetails" element={<ProjectDetails />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/customer-login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/commercial-projects" element={<CommercialProjects />} />
+        <Route path="/careers" element={<Careers />} />
       </Routes>
     </BrowserRouter>
   );
