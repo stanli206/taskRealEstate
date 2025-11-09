@@ -227,7 +227,31 @@ function CommercialProjects() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b border-gray-200">
+
+      {/* <header className="sticky top-0 z-40 bg-white/90 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <Link
+            to="/residential/ongoing-projects"
+            className="flex items-center"
+          >
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center shadow">
+              <span className="text-white font-bold">E</span>
+            </div>
+            <span className="ml-3 text-xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              EliteHomes
+            </span>
+          </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <Link
+              to="/residential/ongoing-projects"
+              className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+            >
+              Back to home
+            </Link>
+          </nav>
+        </div>
+      </header> */}
+      <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
