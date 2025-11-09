@@ -18,7 +18,10 @@ function Login() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
       <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
-        <Link to="/residential/ongoing-projects" className="flex items-center group">
+        <Link
+          to="/residential/ongoing-projects"
+          className="flex items-center group"
+        >
           <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-md">
             <span className="text-white font-bold text-lg">E</span>
           </div>
@@ -46,7 +49,6 @@ function Login() {
               </p>
             </div>
 
-         
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button className="w-full border border-gray-300 rounded-xl py-3 px-4 flex items-center justify-center gap-2 hover:bg-gray-50 transition">
                 <img
@@ -70,7 +72,6 @@ function Login() {
               </button>
             </div>
 
-        
             <div className="flex items-center my-8">
               <div className="h-px bg-gray-200 flex-1" />
               <span className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
@@ -79,9 +80,12 @@ function Login() {
               <div className="h-px bg-gray-200 flex-1" />
             </div>
 
-           
             <form className="space-y-4">
-              <Input label="Email address" type="email" placeholder="you@example.com" />
+              <Input
+                label="Email address"
+                type="email"
+                placeholder="you@example.com"
+              />
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="block text-sm font-medium text-gray-700">
@@ -101,7 +105,6 @@ function Login() {
                 />
               </div>
 
-          
               <div className="flex items-center justify-between pt-2">
                 <label className="inline-flex items-center gap-2 text-sm text-gray-700">
                   <input
@@ -120,18 +123,13 @@ function Login() {
               </button>
             </form>
 
-         
             <p className="text-sm text-gray-600 mt-6">
               New to EliteHouse?{" "}
-              <Link
-                to="/signup"
-                className="font-semibold text-purple-700 hover:text-purple-900"
-              >
+              <Link className="font-semibold text-purple-700 hover:text-purple-900">
                 Create an account
               </Link>
             </p>
 
-          
             <p className="text-xs text-gray-500 mt-4">
               By continuing, you agree to our{" "}
               <Link to="/terms" className="underline hover:text-gray-700">
@@ -140,11 +138,11 @@ function Login() {
               and{" "}
               <Link to="/privacy" className="underline hover:text-gray-700">
                 Privacy Policy
-              </Link>.
+              </Link>
+              .
             </p>
           </div>
 
-         
           <div className="relative rounded-2xl overflow-hidden shadow-xl min-h-[380px] lg:min-h-full">
             <img
               src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=1600&auto=format&fit=crop"
@@ -156,19 +154,25 @@ function Login() {
               <div className="backdrop-blur-sm bg-white/10 rounded-xl p-6">
                 <h2 className="text-2xl font-bold">Live the Elite Life</h2>
                 <p className="mt-2 text-sm text-pink-100">
-                  Curated homes, transparent pricing, expert guidance — all in one place.
+                  Curated homes, transparent pricing, expert guidance — all in
+                  one place.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-xs rounded-full bg-white/20">RERA Verified</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-white/20">Trusted Builders</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-white/20">Loan Assistance</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-white/20">
+                    RERA Verified
+                  </span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-white/20">
+                    Trusted Builders
+                  </span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-white/20">
+                    Loan Assistance
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        
         <p className="text-center text-xs text-gray-500 mt-8">
           © {new Date().getFullYear()} EliteHouse. All rights reserved.
         </p>
