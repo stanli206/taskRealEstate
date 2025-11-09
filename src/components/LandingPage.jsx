@@ -224,7 +224,7 @@ function LandingPage() {
 
               <button
                 onClick={handleGetStarted}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-gray-900 px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 font-semibold"
+                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 font-semibold"
               >
                 Get Start
               </button>
@@ -314,7 +314,7 @@ function LandingPage() {
                 </p>
                 <button
                   onClick={handleGetStarted}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400 shadow-2xl"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-400 shadow-2xl"
                 >
                   {slide.cta}
                 </button>
