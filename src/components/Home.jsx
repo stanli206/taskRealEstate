@@ -483,7 +483,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo -> link to home */}
-          <Link to="residential/ongoing-projects" className="flex items-center">
+          <Link to="/residential/ongoing-projects" className="flex items-center">
             <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">E</span>
             </div>
@@ -1028,7 +1028,7 @@ function Home() {
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1">
-              <Link to="residential/ongoing-projects" className="flex items-center mb-4">
+              <Link to="/residential/ongoing-projects" className="flex items-center mb-4">
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-lg">E</span>
                 </div>

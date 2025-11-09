@@ -22,7 +22,7 @@ function About() {
       {/* Top Bar */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link to="residential/ongoing-projects" className="flex items-center">
+          <Link to="/residential/ongoing-projects" className="flex items-center">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center shadow">
               <span className="text-white font-bold">E</span>
             </div>
@@ -31,7 +31,7 @@ function About() {
             </span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
-            {/* <Link to="residential/ongoing-projects" className="text-gray-700 hover:text-purple-700">
+            {/* <Link to="/residential/ongoing-projects" className="text-gray-700 hover:text-purple-700">
               Home
             </Link>
             <Link to="/feauturedprojects" className="text-gray-700 hover:text-purple-700">
@@ -41,7 +41,7 @@ function About() {
               Blog
             </Link> */}
             <Link
-              to="residential/ongoing-projects"
+              to="/residential/ongoing-projects"
               className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white"
             >
               Back to home

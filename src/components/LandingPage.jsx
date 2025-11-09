@@ -152,11 +152,11 @@ function LandingPage() {
   }, [slides.length]);
 
   const handleGetStarted = () => {
-    navigate("residential/ongoing-projects");
+    navigate("/residential/ongoing-projects");
   };
 
   const handleViewDetails = () => {
-    navigate("residential/ongoing-projects");
+    navigate("/residential/ongoing-projects");
   };
 
   return (
